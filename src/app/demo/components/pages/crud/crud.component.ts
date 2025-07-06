@@ -44,9 +44,9 @@ export class CrudComponent implements OnInit {
         ];
 
         this.statuses = [
-            { label: 'INSTOCK', value: 'instock' },
-            { label: 'LOWSTOCK', value: 'lowstock' },
-            { label: 'OUTOFSTOCK', value: 'outofstock' }
+            { label: 'DISPONIBLE', value: 'disponible' },
+            { label: 'RUPTURE', value: 'rupture' },
+            { label: 'STOCK-BAS', value: 'stock-bas' }
         ];
     }
 
@@ -123,7 +123,7 @@ export class CrudComponent implements OnInit {
             }
         }
 
-        return index;
+        return index; 
     }
 
     createId(): string {

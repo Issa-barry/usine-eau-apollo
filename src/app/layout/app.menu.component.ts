@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-menu',
-    templateUrl: './app.menu.component.html'
+    templateUrl: './app.menu.component.html',
 })
 export class AppMenuComponent implements OnInit {
-
     model: any[] = [];
 
     ngOnInit() {
@@ -18,72 +17,86 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Stat-Vente',
                         icon: 'pi pi-fw pi-chart-line',
-                        routerLink: ['/dashboard-banking']
+                        routerLink: ['/dashboard-banking'],
                     },
                     {
                         label: 'Stat-RH',
                         icon: 'pi pi-fw pi-home',
-                        routerLink: ['/']
+                        routerLink: ['/'],
                     },
-                    
-                ]
+                ],
             },
             {
                 label: 'MENU',
                 icon: 'pi pi-th-large',
                 items: [
+                    // {
+                    //     label: 'Produits',
+                    //     icon: 'pi pi-fw pi-plus',
+                    //     items: [
+                    //         {
+                    //             label: 'Vente',
+                    //             icon: 'pi pi-fw pi-calculator',
+                    //             routerLink: ['pages/crud']
+                    //         },
+                    //         {
+                    //             label: 'Achat',
+                    //             icon: 'pi pi-fw pi-cart-plus',
+                    //             routerLink: ['ecommerce/product-overview']
+                    //         },
+
+                    //     ]
+                    // },
+                       {
+                                label: 'Vente',
+                                icon: 'pi pi-fw pi-calculator',
+                                routerLink: ['pages/crud']
+                            },
+                            {
+                                label: 'Achat',
+                                icon: 'pi pi-fw pi-cart-plus',
+                                routerLink: ['ecommerce/product-overview']
+                            },
                     {
-                        label: 'Production',
-                        icon: 'pi pi-fw pi-plus',
-                        items: [
-                            {
-                                label: 'Manutenssion',
-                                icon: 'pi pi-fw pi-wrench',
-                                routerLink: ['/apps/blog/list']
-                            },
-                            {
-                                label: 'Packing',
-                                icon: 'pi pi-fw pi-box',
-                                routerLink: ['/apps/blog/detail']
-                            },
-                             
-                        ]
+                        label: 'Packing',
+                        icon: 'pi pi-fw pi-box',
+                        routerLink: ['/apps/blog/detail'],
                     },
                     {
                         label: 'Stock',
                         icon: 'pi pi-fw pi-database',
-                        routerLink: ['/apps/calendar']
+                        routerLink: ['/stock'],
                     },
                     {
                         label: 'Livraison',
                         icon: 'pi pi-fw pi-truck',
-                        routerLink: ['/apps/chat']
+                        routerLink: ['/apps/chat'],
                     },
-                     {
+                    {
                         label: 'Facturation',
                         icon: 'pi pi-fw pi-credit-card',
-                        routerLink: ['/apps/calendar']
+                        routerLink: ['/pages/invoice'],
                     },
-                    
-                ]
+                     
+                ],
             },
-              
+
             {
-                label: 'Autre',
+                label: 'Contact',
                 icon: 'pi pi-fw pi-download',
                 items: [
                     {
-                        label: 'Paramètres',
-                        icon: 'pi pi-fw pi-cog',
-                        url: ['/']
+                        label: 'Clients',
+                        icon: 'pi pi-fw pi-users',
+                        url: ['/'],
                     },
                     {
-                        label: 'Déconnexion',
-                        icon: 'pi pi-fw pi-lock',
-                        routerLink: ['/documentation']
-                    }
-                ]
-            }
+                        label: 'Employés',
+                        icon: 'pi pi-fw pi-id-card',
+                        routerLink: ['/documentation'],
+                    },
+                ],
+            },
         ];
     }
 }

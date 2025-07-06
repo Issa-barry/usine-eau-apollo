@@ -6,17 +6,17 @@
     font-size: 12px;
     letter-spacing: .3px;
 
-    &.status-instock {
+    &.status-disponible {
         background: var(--green-200);
         color: var(--green-800);
     }
 
-    &.status-outofstock {
+    &.status-rupture {
         background: var(--pink-200);
         color: var(--pink-800);
     }
 
-    &.status-lowstock {
+    &.status-stock-bas {
         background: var(--yellow-200);
         color: var(--yellow-800);
     }
@@ -27,15 +27,15 @@
     font-size: 12px;
     letter-spacing: .3px;
 
-    &.status-instock {
+    &.status-disponible {
         color: var(--green-500);
     }
 
-    &.status-outofstock {
+    &.status-rupture {
         color: var(--pink-500);
     }
 
-    &.status-lowstock {
+    &.status-stock-bas {
         color: var(--yellow-500);
     }
 }
