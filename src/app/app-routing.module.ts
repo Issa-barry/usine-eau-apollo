@@ -19,7 +19,11 @@ const routes: Routes = [
             { path: 'blocks', data: { breadcrumb: 'Prime Blocks' }, loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
             { path: 'ecommerce', data: { breadcrumb: 'E-Commerce' }, loadChildren: () => import('./demo/components/ecommerce/ecommerce.module').then(m => m.EcommerceModule) },
             { path: 'apps', data: { breadcrumb: 'Apps' }, loadChildren: () => import('./demo/components/apps/apps.module').then(m => m.AppsModule) },
-            { path: 'stock', data: { breadcrumb: 'Stock' }, loadChildren: () => import('./demo/components/stock/stock.module').then(m => m.StockModule) }
+            { path: 'stock', data: { breadcrumb: 'Stock' }, loadChildren: () => import('./demo/components/stock/stock.module').then(m => m.StockModule) },
+            { path: 'packing', loadChildren: () => import('./demo/components/packing/packing.module').then(m => m.PackingModule) },
+            { path: 'livraison', loadChildren: () => import('./demo/components/livraison/livraison.module').then(m => m.LivraisonModule) }
+
+
         ]
     },
     { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },

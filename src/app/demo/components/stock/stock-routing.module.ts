@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'reception-edit', loadChildren: () => import('./reception/reception-edit/reception-edit.module').then(m => m.ReceptionEditModule) },
   { path: 'reception-detail', loadChildren: () => import('./reception/reception-detail/reception-detail.module').then(m => m.ReceptionDetailModule) },
   { path: 'produit', loadChildren: () => import('./produit/produit.module').then(m => m.ProduitModule) },
+  { path: 'depot', loadChildren: () => import('./depot/depot.module').then(m => m.DepotModule) },
   ];
 
 @NgModule({
