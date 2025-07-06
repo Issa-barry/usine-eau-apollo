@@ -47,20 +47,20 @@ export class AppMenuComponent implements OnInit {
 
                     //     ]
                     // },
-                       {
-                                label: 'Vente',
-                                icon: 'pi pi-fw pi-calculator',
-                                routerLink: ['pages/crud']
-                            },
-                            {
-                                label: 'Achat',
-                                icon: 'pi pi-fw pi-cart-plus',
-                                routerLink: ['ecommerce/product-overview']
-                            },
+                    {
+                        label: 'Vente',
+                        icon: 'pi pi-fw pi-calculator',
+                        routerLink: ['/ventes'],
+                    },
+                    {
+                        label: 'Achat',
+                        icon: 'pi pi-fw pi-cart-plus',
+                        routerLink: ['/achats'],
+                    },
                     {
                         label: 'Packing',
                         icon: 'pi pi-fw pi-box',
-                        routerLink: ['/apps/blog/detail'],
+                        routerLink: ['/packing'],
                     },
                     {
                         label: 'Stock',
@@ -70,33 +70,37 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Livraison',
                         icon: 'pi pi-fw pi-truck',
-                        routerLink: ['/apps/chat'],
+                        routerLink: ['/livraison'],
                     },
                     {
                         label: 'Facturation',
                         icon: 'pi pi-fw pi-credit-card',
-                        routerLink: ['/pages/invoice'],
+                        routerLink: ['/facturation'],
                     },
-                     
+                    {
+                        label: 'Contact',
+                        icon: 'pi pi-fw pi-credit-card',
+                        routerLink: ['/contact'],
+                    },
                 ],
             },
 
-            {
-                label: 'Contact',
-                icon: 'pi pi-fw pi-download',
-                items: [
-                    {
-                        label: 'Clients',
-                        icon: 'pi pi-fw pi-users',
-                        url: ['/'],
-                    },
-                    {
-                        label: 'Employés',
-                        icon: 'pi pi-fw pi-id-card',
-                        routerLink: ['/documentation'],
-                    },
-                ],
-            },
+            // {
+            //     label: 'Contact',
+            //     icon: 'pi pi-fw pi-download',
+            //     items: [
+            //         {
+            //             label: 'Clients',
+            //             icon: 'pi pi-fw pi-users',
+            //             url: ['/'],
+            //         },
+            //         {
+            //             label: 'Employés',
+            //             icon: 'pi pi-fw pi-id-card',
+            //             routerLink: ['/documentation'],
+            //         },
+            //     ],
+            // },
         ];
     }
 }
