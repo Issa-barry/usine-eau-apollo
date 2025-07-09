@@ -15,7 +15,7 @@ interface MonthlyPayment {
 export class BankingDashboardComponent implements OnInit, OnDestroy {
     chartData: any;
 
-    chartOptions: any;
+    chartOptions: any; 
 
     payments: MonthlyPayment[] = [];
 

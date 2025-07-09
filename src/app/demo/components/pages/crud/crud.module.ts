@@ -26,7 +26,7 @@ import { DialogModule } from 'primeng/dialog';
 		FormsModule,
 		ButtonModule,
 		RippleModule,
-		ToastModule,
+		ToastModule, 
 		ToolbarModule,
 		RatingModule,
 		InputTextModule,

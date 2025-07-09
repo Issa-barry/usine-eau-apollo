@@ -10,7 +10,7 @@ import { Table } from 'primeng/table';
 })
 export class CrudComponent implements OnInit {
 
-    productDialog: boolean = false; 
+    productDialog: boolean = false;  
 
     deleteProductDialog: boolean = false;
 
