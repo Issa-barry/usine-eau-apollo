@@ -17,6 +17,7 @@ import { DialogModule } from 'primeng/dialog';
 
 import { ContactListeRoutingModule } from './contact-liste-routing.module';
 import { ContactListeComponent } from './contact-liste.component';
+import { SkeletonModule } from 'primeng/skeleton';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ContactListeComponent } from './contact-liste.component';
         DropdownModule,
         RadioButtonModule,
         InputNumberModule,
-        DialogModule
+        DialogModule,
+        SkeletonModule,
   ]
 })
 export class ContactListeModule { }
