@@ -3,22 +3,22 @@ import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/product.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-ventes',
+  selector: 'app-achats-liste',
   // standalone: true,
   // imports: [],
-  templateUrl: './ventes.component.html',
-  styleUrl: './ventes.component.scss',
-     providers: [MessageService, ConfirmationService]
+  templateUrl: './achats-liste.component.html',
+  styleUrl: './achats-liste.component.scss',
+   providers: [MessageService, ConfirmationService]
 })
-export class VentesComponent implements OnInit {
+export class AchatsListeComponent implements OnInit {
 
-    productDialog: boolean = false; 
+
+    productDialog: boolean = false;  
 
     deleteProductDialog: boolean = false;
-
+ 
     deleteProductsDialog: boolean = false;
 
     products: Product[] = [];
@@ -35,7 +35,7 @@ export class VentesComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private router: Router, private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+    constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
@@ -143,8 +143,6 @@ export class VentesComponent implements OnInit {
     onGlobalFilter(table: Table, event: Event) {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
     }
-
-      onGoToNewCommande() {
-        this.router.navigate(['/ventes/new']);
-    }
 }
+
+

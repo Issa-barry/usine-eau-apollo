@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
@@ -13,19 +13,18 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { DialogModule } from 'primeng/dialog'; 
+import { DialogModule } from 'primeng/dialog';
 
-import { ContactRoutingModule } from './contact-routing.module';
-import { ContactComponent } from './contact.component';
+import { AchatsListeRoutingModule } from './achats-liste-routing.module';
+import { AchatsListeComponent } from './achats-liste.component';
 
 
 @NgModule({
-  declarations: [ContactComponent],
-
+  declarations: [AchatsListeComponent],
   imports: [
     CommonModule,
-    ContactRoutingModule,
-      TableModule,
+    AchatsListeRoutingModule,
+        TableModule,
         FileUploadModule,
         FormsModule,
         ButtonModule,
@@ -41,4 +40,4 @@ import { ContactComponent } from './contact.component';
         DialogModule
   ]
 })
-export class ContactModule { }
+export class AchatsListeModule { }

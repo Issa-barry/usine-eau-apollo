@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
     productDialog: boolean = false;  
 
     deleteProductDialog: boolean = false;
-
+ 
     deleteProductsDialog: boolean = false;
 
     products: Product[] = [];
