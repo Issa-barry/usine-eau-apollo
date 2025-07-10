@@ -48,12 +48,12 @@ export class AppMenuComponent implements OnInit {
                     //     ]
                     // },
                     {
-                        label: 'Vente',
+                        label: 'Ventes',
                         icon: 'pi pi-fw pi-calculator',
                         routerLink: ['/ventes'],
                     },
                     {
-                        label: 'Achat',
+                        label: 'Achats',
                         icon: 'pi pi-fw pi-cart-plus',
                         routerLink: ['/achats'],
                     },

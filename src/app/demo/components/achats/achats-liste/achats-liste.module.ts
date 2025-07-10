@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
@@ -15,30 +15,29 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 
-
-import { PackingRoutingModule } from './packing-routing.module';
-import { PackingComponent } from './packing.component';
+import { AchatsListeRoutingModule } from './achats-liste-routing.module';
+import { AchatsListeComponent } from './achats-liste.component';
 
 
 @NgModule({
-  declarations: [PackingComponent],
+  declarations: [AchatsListeComponent],
   imports: [
     CommonModule,
-    PackingRoutingModule,
-    	TableModule,
-		FileUploadModule,
-		FormsModule,
-		ButtonModule,
-		RippleModule,
-		ToastModule, 
-		ToolbarModule,
-		RatingModule,
-		InputTextModule,
-		InputTextareaModule,
-		DropdownModule,
-		RadioButtonModule,
-		InputNumberModule,
-		DialogModule
+    AchatsListeRoutingModule,
+        TableModule,
+        FileUploadModule,
+        FormsModule,
+        ButtonModule,
+        RippleModule,
+        ToastModule, 
+        ToolbarModule,
+        RatingModule,
+        InputTextModule,
+        InputTextareaModule,
+        DropdownModule,
+        RadioButtonModule,
+        InputNumberModule,
+        DialogModule
   ]
 })
-export class PackingModule { }
+export class AchatsListeModule { }

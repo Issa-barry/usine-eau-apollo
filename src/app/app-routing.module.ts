@@ -23,9 +23,10 @@ const routes: Routes = [
             { path: 'packing', loadChildren: () => import('./demo/components/packing/packing.module').then(m => m.PackingModule) },
             { path: 'livraison', loadChildren: () => import('./demo/components/livraison/livraison.module').then(m => m.LivraisonModule) },
             { path: 'facturation', loadChildren: () => import('./demo/components/facturation/facturation.module').then(m => m.FacturationModule) },
-            { path: 'achats', loadChildren: () => import('./demo/components/achats/achats.module').then(m => m.AchatsModule) },
             { path: 'ventes', loadChildren: () => import('./demo/components/ventes/ventes.module').then(m => m.VentesModule) },
-            { path: 'contact', loadChildren: () => import('./demo/components/contact/contact.module').then(m => m.ContactModule) }
+            { path: 'contact', loadChildren: () => import('./demo/components/contact/contact.module').then(m => m.ContactModule) },
+            { path: 'achats', loadChildren: () => import('./demo/components/achats/achats.module').then(m => m.AchatsModule) },
+
     
         ]
     },

@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AchatsComponent } from './achats.component';
+import { AchatsListeComponent } from './achats-liste/achats-liste.component';
 
-const routes: Routes = [{ path: '', component: AchatsComponent }, { path: 'new', loadChildren: () => import('./new/new.module').then(m => m.NewModule) }, { path: 'detail', loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule) }, { path: 'edit', loadChildren: () => import('./edit/edit.module').then(m => m.EditModule) }];
+const routes: Routes = [{ path: '', component: AchatsListeComponent }, 
+  { path: 'achats-liste', loadChildren: () => import('./achats-liste/achats-liste.module').then(m => m.AchatsListeModule) }, 
+  { path: 'achats-new', loadChildren: () => import('./achats-new/achats-new.module').then(m => m.AchatsNewModule) }, 
+  { path: 'achats-detail', loadChildren: () => import('./achats-detail/achats-detail.module').then(m => m.AchatsDetailModule) }, 
+  { path: 'achats-edit', loadChildren: () => import('./achats-edit/achats-edit.module').then(m => m.AchatsEditModule) }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

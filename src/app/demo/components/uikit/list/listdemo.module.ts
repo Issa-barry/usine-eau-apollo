@@ -17,7 +17,7 @@ import { ButtonModule } from 'primeng/button';
 		FormsModule,
 		ListDemoRoutingModule,
 		DataViewModule,
-		PickListModule,
+		PickListModule, 
 		OrderListModule,
 		InputTextModule,
 		DropdownModule,

@@ -5,21 +5,20 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 @Component({
-  selector: 'app-reception-liste',
+  selector: 'app-achats-liste',
   // standalone: true,
   // imports: [],
-  templateUrl: './reception-liste.component.html',
-  styleUrl: './reception-liste.component.scss',
-      providers: [MessageService, ConfirmationService]
-  
+  templateUrl: './achats-liste.component.html',
+  styleUrl: './achats-liste.component.scss',
+   providers: [MessageService, ConfirmationService]
 })
-export class ReceptionListeComponent implements OnInit {
+export class AchatsListeComponent implements OnInit {
 
 
     productDialog: boolean = false;  
 
     deleteProductDialog: boolean = false;
-
+ 
     deleteProductsDialog: boolean = false;
 
     products: Product[] = [];
@@ -145,4 +144,5 @@ export class ReceptionListeComponent implements OnInit {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
     }
 }
- 
+
+

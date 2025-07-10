@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProduitComponent } from './produit.component';
-
+import { ListeComponent } from './liste/liste.component';
+ 
 const routes: Routes = [
-    { path: '', component: ProduitComponent },
+    { path: '', component: ListeComponent, pathMatch: 'full' },
    
     {
-        path: 'detail',
+        path: 'detail/:id',
         loadChildren: () =>
             import('./detail/detail.module').then((m) => m.DetailModule),
     },
     {
         path: 'liste',
-        loadChildren: () =>
+        loadChildren: () => 
             import('./liste/liste.module').then((m) => m.ListeModule),
     },
     {
-        path: 'edit',
+        path: 'edit/:id',
         loadChildren: () =>
             import('./edit/edit.module').then((m) => m.EditModule),
-    },
-    {
-        path: 'edit',
-        loadChildren: () =>
-            import('./edit/edit.module').then((m) => m.EditModule),
-    },
+    }, 
     { path: 'new', loadChildren: () => import('./new/new.module').then(m => m.NewModule) },
 ];
 
