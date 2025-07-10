@@ -3,6 +3,7 @@ import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/product.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livraison',
@@ -35,7 +36,15 @@ export class LivraisonComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+    // IBA VARIABLES
+    livraisonPageTitle: string = 'Livraison';
+    dialogHedaerSubtitle: string = 'Détails de la livraison';
+
+    constructor(
+        private productService: ProductService, 
+        private messageService: MessageService, 
+        private confirmationService: ConfirmationService, 
+      private router: Router) { }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
@@ -142,5 +151,45 @@ export class LivraisonComponent implements OnInit {
 
     onGlobalFilter(table: Table, event: Event) {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+    }
+
+    // Iba
+
+selectedClient: any = null;
+selectedProduit: any = null;
+selectedLivreur: any = null;
+selectedDepot: any = null;
+
+total: number = 0;
+quantite: number = 1;
+
+clients = [
+    { nom: 'Issa Barry', telephone: '+224 622 000 000' },
+    { nom: 'Aïssatou Diallo', telephone: '+224 622 111 111' },
+    { nom: 'Mohamed Camara', telephone: '+224 622 222 222' },
+    { nom: 'Fatoumata Bah', telephone: '+224 622 333 333' },
+];
+
+produits = [
+    { nom: 'Eau Minérale 1L', reference: 'EAU-001' },
+    { nom: 'Pack Jus de Bissap', reference: 'JUS-012' },
+    { nom: 'Sac de Riz 25kg', reference: 'RIZ-025' },
+    { nom: 'Boîte de Sardine', reference: 'SAR-003' },
+];
+
+livreurs = [
+    { nom: 'Alpha Condé', telephone: '+224 622 444 444' },
+    { nom: 'Mamadou Sylla', telephone: '+224 622 555 555' },
+    { nom: 'Ibrahima Touré', telephone: '+224 622 666 666' },
+];
+
+depots = [
+    { nom: 'Dépôt Matoto', telephone: '+224 622 777 777' },
+    { nom: 'Dépôt Kipé', telephone: '+224 622 888 888' },
+    { nom: 'Dépôt Enco5', telephone: '+224 622 999 999' },
+];
+
+    onGoToEditCommande() {
+        this.router.navigate(['/ventes/edit']);
     }
 }

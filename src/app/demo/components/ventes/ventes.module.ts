@@ -18,6 +18,7 @@ import { DialogModule } from 'primeng/dialog';
 
 import { VentesRoutingModule } from './ventes-routing.module';
 import { VentesComponent } from './ventes.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { VentesComponent } from './ventes.component';
         DropdownModule,
         RadioButtonModule,
         InputNumberModule,
-        DialogModule
+        DialogModule,
+         MultiSelectModule,
   ]
 })
 export class VentesModule { }

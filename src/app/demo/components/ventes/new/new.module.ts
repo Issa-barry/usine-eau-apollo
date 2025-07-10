@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -11,14 +11,14 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { NewRoutingModule } from './new-routing.module';
 import { NewComponent } from './new.component';
-
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
-  declarations: [NewComponent],
-  imports: [
-    CommonModule,
-    NewRoutingModule,
-     FormsModule,
+    declarations: [NewComponent],
+    imports: [
+        CommonModule,
+        NewRoutingModule,
+        FormsModule,
         CheckboxModule,
         DropdownModule,
         InputTextModule,
@@ -26,7 +26,8 @@ import { NewComponent } from './new.component';
         ButtonModule,
         RippleModule,
         InputGroupModule,
-        InputGroupAddonModule
-  ]
+        InputGroupAddonModule,
+        MultiSelectModule,
+    ],
 })
-export class NewModule { }
+export class NewModule {}

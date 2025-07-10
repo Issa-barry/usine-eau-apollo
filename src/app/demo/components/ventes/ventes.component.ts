@@ -4,6 +4,8 @@ import { ProductService } from 'src/app/demo/service/product.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { Router } from '@angular/router';
+import { CountryService } from '../../service/country.service';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-ventes',
@@ -33,9 +35,9 @@ export class VentesComponent implements OnInit {
 
     statuses: any[] = [];
 
-    rowsPerPageOptions = [5, 10, 20];
+    rowsPerPageOptions = [5, 10, 20]; 
 
-    constructor(private router: Router, private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+    constructor( private countryService: CountryService,private router: Router, private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
@@ -52,6 +54,25 @@ export class VentesComponent implements OnInit {
             { label: 'DISPONIBLE', value: 'disponible' },
             { label: 'RUPTURE', value: 'rupture' },
             { label: 'STOCK-BAS', value: 'stock-bas' }
+        ];
+
+        // MULTISELECTION 
+        this.countryService.getCountries().then(countries => {
+            this.countries = countries;
+        });
+
+        this.cities = [
+            { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
+            { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
+            { label: 'London', value: { id: 3, name: 'London', code: 'LDN' } },
+            { label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } },
+            { label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } }
+        ];
+
+        this.paymentOptions = [
+            { name: 'Option 1', value: 1 },
+            { name: 'Option 2', value: 2 },
+            { name: 'Option 3', value: 3 }
         ];
     }
 
@@ -146,5 +167,60 @@ export class VentesComponent implements OnInit {
 
       onGoToNewCommande() {
         this.router.navigate(['/ventes/new']);
+    }
+      onGoToEditCommande() {
+        this.router.navigate(['/ventes/edit']);
+    }
+
+    countries: any[] = [];
+
+    filteredCountries: any[] = [];
+
+    selectedCountryAdvanced: any[] = [];
+
+    valSlider = 50;
+
+    valColor = '#424242';
+
+    valRadio: string = '';
+
+    valCheck: string[] = [];
+
+    valCheck2: boolean = false;
+
+    valSwitch: boolean = false;
+
+    cities: SelectItem[] = [];
+
+    selectedList: SelectItem = { value: '' };
+
+    selectedDrop: SelectItem = { value: '' };
+
+    selectedMulti: any[] = [];
+
+    valToggle = false;
+
+    paymentOptions: any[] = [];
+
+    valSelect1: string = "";
+
+    valSelect2: string = "";
+
+    valueKnob = 20;
+
+    
+ 
+
+    filterCountry(event: any) {
+        const filtered: any[] = [];
+        const query = event.query;
+        for (let i = 0; i < this.countries.length; i++) {
+            const country = this.countries[i];
+            if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+                filtered.push(country);
+            }
+        }
+
+        this.filteredCountries = filtered;
     }
 }

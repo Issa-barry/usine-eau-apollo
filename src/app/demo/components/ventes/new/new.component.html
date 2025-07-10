@@ -1,98 +1,208 @@
 <div class="card">
     <div class="grid grid-nogutter">
         <div class="col-12 px-4 mt-4 md:mt-6 md:px-6">
-            <span class="text-900 block font-bold text-xl">Commande</span>
+            <span class="text-900 block font-bold text-xl"
+                >Créer une commande</span
+            >
         </div>
+
         <div class="col-12 lg:col-6 h-full px-4 py-4 md:px-6">
+            <!-- Étapes -->
             <ul class="flex list-none flex-wrap p-0 mb-6">
-                <li class="flex align-items-center text-primary mr-2">Nouveau <i class="pi pi-chevron-right text-500 text-xs ml-2"></i></li>
-                <li class="flex align-items-center text-500 mr-2">Livraison en cours<i class="pi pi-chevron-right text-500 text-xs ml-2"></i></li>
-                <li class="flex align-items-center text-500 mr-2">Facturation<i class="pi pi-chevron-right text-500 text-xs ml-2"></i></li>
-                <li class="flex align-items-center text-500 mr-2">cloturé</li>
+                <li class="flex align-items-center text-primary mr-2">
+                    Nouveau
+                    <i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+                </li>
+                <li class="flex align-items-center text-500 mr-2">
+                    Livraison en cours
+                    <i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+                </li>
+                <li class="flex align-items-center text-500 mr-2">
+                    Facturation
+                    <i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+                </li>
+                <li class="flex align-items-center text-500 mr-2">Clôturé</li>
             </ul>
+
             <div class="grid formgrid">
-                <div class="col-12 field mb-6">
-                    <span class="text-900 text-2xl block font-medium mb-3">Produit</span>
-                     <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Selectionner le produit" optionLabel="name" [showClear]="true" styleClass="w-full"></p-dropdown>
-               </div>
-                <div class="col-12 field mb-4">
-                    <span class="text-900 text-2xl block font-medium mb-3">Client</span>
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Slectionner le client" optionLabel="name" [showClear]="true" styleClass="w-full"></p-dropdown>
-                </div>
+                <!-- produit -->
 
                 <div class="col-12 field mb-4">
-                    <span class="text-900 text-2xl block font-medium mb-3">Livreur</span>
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Slectionner le livreur" optionLabel="name" [showClear]="true" styleClass="w-full"></p-dropdown>
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Produit</span
+                    >
+                    <p-multiSelect
+                        [options]="countries"
+                        [(ngModel)]="selectedMulti"
+                        placeholder="Sélectionner un ou plusieurs pays"
+                        optionLabel="name"
+                        display="chip"
+                        styleClass="w-full"
+                    >
+                        <ng-template let-country pTemplate="item">
+                            <div class="flex align-items-center">
+                                <img
+                                    src="assets/demo/images/flag/flag_placeholder.png"
+                                    [class]="
+                                        'flag flag-' +
+                                        country.code.toLowerCase()
+                                    "
+                                    style="width: 21px"
+                                />
+                                <span class="ml-2">{{ country.name }}</span>
+                            </div>
+                        </ng-template>
+                    </p-multiSelect>
                 </div>
-                 
-                  <div class="col-12 field mb-4">
-                    <span class="text-900 text-2xl block font-medium mb-3">Dépot</span>
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Slectionner le dépot" optionLabel="name" [showClear]="true" styleClass="w-full"></p-dropdown>
+                <!-- client -->
+                <div class="col-12 field mb-4">
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Client</span
+                    >
+                    <p-dropdown
+                        [options]="clients"
+                        [(ngModel)]="selectedClient"
+                        optionLabel="nom"
+                        placeholder="Sélectionner un client"
+                        [filter]="true"
+                        filterBy="nom telephone"
+                        [showClear]="true"
+                        styleClass="w-full"
+                    >
+                        <ng-template let-client pTemplate="selectedItem">
+                            <div *ngIf="client" class="flex flex-column">
+                                <div class="font-medium">{{ client.nom }}</div>
+                                <small class="text-500">{{
+                                    client.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                        <ng-template let-client pTemplate="item">
+                            <div class="flex flex-column">
+                                <div class="font-medium">{{ client.nom }}</div>
+                                <small class="text-500">{{
+                                    client.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
                 </div>
 
-                <div class="col-12 lg:col-12 field mb-4">
-                    <input id="pc" placeholder="Qté :" type="text" class="p-inputtext w-full">
+                <!-- Livreur -->
+                <div class="col-12 field mb-4">
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Livreur</span
+                    >
+                    <p-dropdown
+                        [options]="livreurs"
+                        [(ngModel)]="selectedLivreur"
+                        optionLabel="nom"
+                        placeholder="Sélectionner un livreur"
+                        [filter]="true"
+                        filterBy="nom telephone"
+                        [showClear]="true"
+                        styleClass="w-full"
+                    >
+                        <ng-template let-person pTemplate="selectedItem">
+                            <div *ngIf="person" class="flex flex-column">
+                                <div class="font-medium">{{ person.nom }}</div>
+                                <small class="text-500">{{
+                                    person.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                        <ng-template let-person pTemplate="item">
+                            <div class="flex flex-column">
+                                <div class="font-medium">{{ person.nom }}</div>
+                                <small class="text-500">{{
+                                    person.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
                 </div>
-                 
-                <div class="col-12 flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end my-6">
-                    <button pButton pRipple class="p-button-secondary p-button-outlined mt-3 lg:mt-0 w-full lg:w-auto flex-order-2 lg:flex-order-1 lg:mr-4" label="Annuler" icon="pi pi-fw pi-arrow-left"></button>
-                    <button pButton pRipple class="p-button-primary w-full lg:w-auto flex-order-1 lg:flex-order-2" label="Valider la commande" icon="pi pi-fw pi-check"></button>
+
+                <!-- Dépôt -->
+                <div class="col-12 field mb-4">
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Dépôt</span
+                    >
+                    <p-dropdown
+                        [options]="depots"
+                        [(ngModel)]="selectedDepot"
+                        optionLabel="nom"
+                        placeholder="Sélectionner un dépôt"
+                        [filter]="true"
+                        filterBy="nom telephone"
+                        [showClear]="true"
+                        styleClass="w-full"
+                    >
+                        <ng-template let-person pTemplate="selectedItem">
+                            <div *ngIf="person" class="flex flex-column">
+                                <div class="font-medium">{{ person.nom }}</div>
+                                <small class="text-500">{{
+                                    person.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                        <ng-template let-person pTemplate="item">
+                            <div class="flex flex-column">
+                                <div class="font-medium">{{ person.nom }}</div>
+                                <small class="text-500">{{
+                                    person.telephone
+                                }}</small>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
                 </div>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 px-4 py-4 md:px-6">
-            <div class="pb-3 surface-border">
-                <span class="text-900 font-medium text-xl">Récapitulatif</span>
-            </div>
-            <div class="flex flex-column lg:flex-row flex-wrap lg:align-items-center py-2 mt-3 surface-border">
-                <img src="assets/demo/images/ecommerce/shop/shop-1.png" class="w-8rem h-8rem flex-shrink-0 mb-3" alt="product"/>
-                <div class="flex-auto lg:ml-3">
-                    <div class="flex align-items-center justify-content-between mb-3">
-                        <span class="text-900 font-bold">Pack 5</span>
-                        <span class="text-900 font-bold">$123.00</span>
-                    </div>
-                    <div class="text-600 text-sm mb-3">Black | Large</div>
-                    <div class="flex flex-auto justify-content-between align-items-center">
-                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" [min]="0" inputStyleClass="w-2rem text-center py-2 px-1 border-transparent outline-none shadow-none" [(ngModel)]="quantities[0]" 
-                        class="border-1 surface-border border-round" decrementButtonClass="p-button-text text-600 hover:text-primary py-1 px-1" incrementButtonClass="p-button-text text-600 hover:text-primary py-1 px-1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-text p-button-rounded"></button>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="py-2 mt-3 surface-border">
-                <p-inputGroup class="mb-3">
-                    <input
-                        type="text"
-                        [(ngModel)]="value"
-                        pInputText
-                        placeholder="Promo code"
+
+                <!-- Total + Qté -->
+                <div class="col-12 lg:col-6 mb-4">
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Total</span
+                    >
+                    <p-inputNumber
+                        [(ngModel)]="total"
+                        placeholder="Prix :"
+                        mode="currency"
+                        currency="USD"
+                        locale="en-US"
                         class="w-full"
+                    ></p-inputNumber>
+                </div>
+
+                <div class="col-12 lg:col-6 field mb-4">
+                    <span class="text-800 text-m block font-normal mb-3"
+                        >Qté</span
+                    >
+                    <input
+                        type="number"
+                        [(ngModel)]="quantite"
+                        placeholder="Qté : 5"
+                        class="p-inputtext w-full"
                     />
+                </div>
+
+                <!-- Boutons -->
+                <div
+                    class="col-12 flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end my-6"
+                >
                     <button
-                        type="button"
                         pButton
                         pRipple
-                        label="Apply"
-                        [disabled]="!value"
+                        class="p-button-secondary p-button-outlined mt-3 lg:mt-0 w-full lg:w-auto flex-order-2 lg:flex-order-1 lg:mr-4"
+                        label="Annuler"
+                        icon="pi pi-fw pi-arrow-left"
+                        (click)="onGoToListeCommande()"
                     ></button>
-                </p-inputGroup>
-            </div> -->
-            <div class="py-2 mt-3">
-                <!-- <div class="flex justify-content-between align-items-center mb-3">
-                    <span class="text-900 font-medium">Subtotal</span>
-                    <span class="text-900">$123.00</span>
-                </div> -->
-                <div class="flex justify-content-between align-items-center mb-3">
-                    <span class="text-900 font-medium">Shipping</span>
-                    <span class="text-primary font-bold">Free</span>
+                    <button
+                        pButton
+                        pRipple
+                        class="p-button-primary w-full lg:w-auto flex-order-1 lg:flex-order-2"
+                        label="Valider la commande"
+                        icon="pi pi-fw pi-check"
+                    ></button>
                 </div>
-                <div class="flex justify-content-between align-items-center mb-3">
-                    <span class="text-900 font-bold">Total</span>
-                    <span class="text-900 font-medium text-xl">$123.00</span>
-                </div>
-            </div>
-            <div class="py-2 mt-3 bg-yellow-100 flex align-items-center justify-content-center border-round">
-                <img src="assets/demo/images/ecommerce/shop/flag.png" class="mr-2" alt="Country Flag"><span class="text-black-alpha-90 font-medium">No additional duties or taxes.</span>
             </div>
         </div>
     </div>

@@ -73,7 +73,7 @@ export class InputDemoComponent implements OnInit {
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
-        }
+        } 
 
         this.filteredCountries = filtered;
     }
