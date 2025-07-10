@@ -5,16 +5,15 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 @Component({
-  selector: 'app-contact',
+  selector: 'app-contact-liste',
   // standalone: true,
   // imports: [],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
-      providers: [MessageService, ConfirmationService]
+  templateUrl: './contact-liste.component.html',
+  styleUrl: './contact-liste.component.scss',
+   providers: [MessageService, ConfirmationService]
 })
-export class ContactComponent implements OnInit {
-
-
+export class ContactListeComponent  implements OnInit {
+ 
     productDialog: boolean = false;  
 
     deleteProductDialog: boolean = false;
@@ -144,5 +143,3 @@ export class ContactComponent implements OnInit {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
     }
 }
-
-

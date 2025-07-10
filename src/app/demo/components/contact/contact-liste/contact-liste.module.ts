@@ -15,15 +15,29 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog'; 
 
-import { ContactRoutingModule } from './contact-routing.module';
- 
+import { ContactListeRoutingModule } from './contact-liste-routing.module';
+import { ContactListeComponent } from './contact-liste.component';
+
 
 @NgModule({
-  declarations: [],
-
+  declarations: [ContactListeComponent],
   imports: [
     CommonModule,
-    ContactRoutingModule,
+    ContactListeRoutingModule,
+      TableModule,
+        FileUploadModule,
+        FormsModule,
+        ButtonModule,
+        RippleModule,
+        ToastModule, 
+        ToolbarModule,
+        RatingModule,
+        InputTextModule,
+        InputTextareaModule,
+        DropdownModule,
+        RadioButtonModule,
+        InputNumberModule,
+        DialogModule
   ]
 })
-export class ContactModule { }
+export class ContactListeModule { }
